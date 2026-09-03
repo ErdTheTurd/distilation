@@ -4,11 +4,12 @@
 import json
 import sys
 from pathlib import Path
+from typing import List, Optional
 
 CORPUS = Path(__file__).parent
 
 
-def validate_jsonl(path: Path, required_keys: list[str] | None = None) -> int:
+def validate_jsonl(path: Path, required_keys: Optional[List[str]] = None) -> int:
     count = 0
     with path.open() as f:
         for i, line in enumerate(f, 1):
